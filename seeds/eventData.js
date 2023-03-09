@@ -1,3 +1,29 @@
-[
- {}
-]
+const { Event } = require('../models');
+
+const eventData = [
+  {
+    image:
+      'https://media.istockphoto.com/id/486420378/photo/head-is-swimming-on-dance-floor.jpg?s=612x612&w=0&k=20&c=EiMJlGkIDN5aPdr8-QHzAIU6R8Siago92eisJZCNqts=',
+    title: 'Free dance party in town square',
+    date: '04/15/2023',
+    time: '21:00',
+    description: 'Come to the town square and dance with us!',
+    location: 'town square, Vilcabamba, Ecuador',
+    email: 'email@email.com',
+    user_id: '1',
+  },
+  {
+    image:
+      'https://media.istockphoto.com/id/611606800/photo/dj-console-mixing-desk-at-a-night-club.jpg?s=612x612&w=0&k=20&c=luozB8c6HiY0-i8iwPrf3zeGZ8WKbo-oAWubzOnkqAA=',
+    title: 'Free DJ night',
+    date: '03/23/2023',
+    time: '24:00',
+    description: 'Free DJ club night',
+    location: 'Santa Diabla bar, Vilcabamba, Ecuador',
+    email: 'email@email.com',
+    user_id: '1',
+  },
+];
+
+const seedEvents = () => Event.bulkCreate(eventData);
+module.exports = seedEvents();
