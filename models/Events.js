@@ -25,7 +25,7 @@ Event.init({
     allowNull: false,
   },
   time: {
-    type: DataTypes.TIME,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   description: {
@@ -46,7 +46,7 @@ Event.init({
   },
   social: {
     type: DataTypes.STRING,
-    allowNull: yes,
+    allowNull: true,
   },
   user_id: {
     type: DataTypes.INTEGER,
