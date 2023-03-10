@@ -30,7 +30,5 @@ const expressSessionConfig = {
   }),
 };
 
-module.exports = {
-  sequelize,
-  expressSessionConfig
-}
+module.exports = { sequelize, expressSessionConfig }
+
