@@ -5,17 +5,10 @@ const { Event } = require("../models");
 // get to request all events from db
 router.get("/", async (req, res) => {
   try {
-    const dbEventData = await Event.findAll({
-      // include: [
-      //   {
-      //     model: Event,
-      //     attributes: ["title", "image", "date"],
-      //   },
-      // ],
-    });
+    const dbEventData = await Event.findAll();
     
     const events = dbEventData.map((event) => event.get({ plain: true }));
-   console.log(events)
+   console.log(events);
     res.render('homepage', {
       events,
       loggedIn: req.session.loggedIn,
@@ -46,13 +39,13 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
-// router.get("/login", (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect("/");
-//     return;
-//   }
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
 
-//   res.render("login");
-// });
+  res.render("login");
+});
 
 module.exports = router;

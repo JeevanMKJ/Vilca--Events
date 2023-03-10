@@ -5,9 +5,7 @@
     "date": "04/15/2023",
     "time": "21:00",
     "description": "Come to the town square and dance with us!",
-    "location": "town square, Vilcabamba, Ecuador",
-    "email": "email@email.com",
-    "user_id": "1"
+    "location": "town square, Vilcabamba, Ecuador"
   },
   {
     "image":
@@ -16,9 +14,7 @@
     "date": "03/23/2023",
     "time": "24:00",
     "description": "Free DJ club night",
-    "location": "Santa Diabla bar, Vilcabamba, Ecuador",
-    "email": "email@email.com",
-    "user_id": "1"
+    "location": "Santa Diabla bar, Vilcabamba, Ecuador"
   }
 ]
 
