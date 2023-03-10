@@ -17,9 +17,25 @@ router.post('/add-event', withAuth, async(req, res) => {
     }
 });
 // update to update event
-
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+      const userData = await Event.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      if (!userData[0]) {
+        res.status(404).json({ message: 'No event with this id!' });
+        return;
+      }
+      res.status(200).json(userData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  
 // delete to delete event
-router.delete(':/id', async (req, res) => {
+router.delete(':/id', withAuth, async (req, res) => {
     try {
         const eventData = await Event.destroy({
             where: {
