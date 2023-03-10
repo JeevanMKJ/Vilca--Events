@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-
-// POST Route to signup 
+// POST Route to signup
 
 router.post('/signup', async (req, res) => {
   try {
@@ -29,9 +28,9 @@ router.post('/login', async (req, res) => {
     });
 
     if (!selectUser) {
-      return res
-        .status(404)
-        .json({ message: "This user does not exist! Please create a new account" });
+      return res.status(404).json({
+        message: 'This user does not exist! Please create a new account',
+      });
     }
 
     const isValidPassword = await selectUser.comparePassword(req.body.password);
@@ -42,27 +41,24 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      return res
-        .status(200)
-        .json({ message: "You are now logged in!" });
+      return res.status(200).json({ message: 'You are now logged in!' });
     });
   } catch (error) {
     return res.status(500).json({ message: 'An error has occured' });
   }
 });
 
-
 // POST route to logout
 
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;
-module.exports = User; 
+module.exports = User;
