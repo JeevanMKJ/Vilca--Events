@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { User } = require('../../models');
+const { Event } = require('../../models');
 const withAuth = require('../../utils/auth');
 // post to create evnet
 router.post('/add-event', withAuth, async(req, res) => {
