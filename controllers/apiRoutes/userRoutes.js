@@ -3,17 +3,39 @@ const { User } = require('../../models');
 
 // POST Route to signup
 
-router.post('/signup', async (req, res) => {
+// router.post('/', async (req, res) => {
+//   try {
+//     const selectUser = await new User.create({
+//       username: req.body.username,
+//       email: req.body.email,
+//       password: req.body.password,
+//     });
+//     // const newUser = selectUser.get({ plain: true });
+
+//     req.session.save(() => {
+//       req.session.loggedIn = true;
+//       res.status(201).json(selectUser);
+//     });
+//   } catch (error) {
+//     res.status(500).json({ message: 'An error has occured' });
+//   }
+// });
+router.post('/', async (req, res) => {
   try {
-    const selectUser = await User.create(req.body);
-    const newUser = selectUser.get({ plain: true });
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      res.status(201).json(newUser);
+
+      res.status(200).json(dbUserData);
     });
-  } catch (error) {
-    res.status(500).json({ message: 'An error has occured' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
@@ -61,4 +83,4 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-module.exports = User;
+// module.exports = User;
