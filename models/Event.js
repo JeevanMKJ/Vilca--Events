@@ -39,7 +39,6 @@ Event.init(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
       unique: false,
       validate: {
         isEmail: true,
