@@ -19,25 +19,25 @@ router.get("/", async (req, res) => {
   }
 });
 
-// // get request event by id
-// router.get("/event/:id", async (req, res) => {
-//   // If the user is not logged in, redirect the user to the login page
-//   if (!req.session.loggedIn) {
-//     res.redirect("/login");
-//   } else {
-//     // If the user is logged in, allow them to view the event
-//     try {
-//       const dbEventData = await Event.findByPk(req.params.id);
+// get request event by id
+router.get("/event/:id", async (req, res) => {
+  // If the user is not logged in, redirect the user to the login page
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  } else {
+    // If the user is logged in, allow them to view the event
+    try {
+      const dbEventData = await Event.findByPk(req.params.id);
 
-//       const event = dbEventData.get({ plain: true });
+      const event = dbEventData.get({ plain: true });
 
-//       res.render("event", { event, loggedIn: req.session.loggedIn });
-//     } catch (err) {
-//       console.log(err);
-//       res.status(500).json(err);
-//     }
-//   }
-// });
+      res.render("event", { event, loggedIn: req.session.loggedIn });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }
+});
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
