@@ -3,23 +3,6 @@ const { User } = require('../../models');
 
 // POST Route to signup
 
-// router.post('/', async (req, res) => {
-//   try {
-//     const selectUser = await new User.create({
-//       username: req.body.username,
-//       email: req.body.email,
-//       password: req.body.password,
-//     });
-//     // const newUser = selectUser.get({ plain: true });
-
-//     req.session.save(() => {
-//       req.session.loggedIn = true;
-//       res.status(201).json(selectUser);
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: 'An error has occured' });
-//   }
-// });
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -55,7 +38,7 @@ router.post('/login', async (req, res) => {
       });
     }
 
-    const isValidPassword = await selectUser.comparePassword(req.body.password);
+    const isValidPassword = await selectUser.checkPassword(req.body.password);
 
     if (!isValidPassword) {
       return res.status(404).json({ message: 'Wrong password' });
@@ -83,4 +66,4 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-// module.exports = User;
+
