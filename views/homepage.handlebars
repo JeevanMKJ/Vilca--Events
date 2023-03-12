@@ -1,4 +1,10 @@
 {{#each events as |event|}}
-<img src="{{image}}">
-{{title}} {{date}}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{image}}" alt="event image">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">{{date}}{{time}}</p>
+    <a href="/events/{{id}}" class="btn btn-primary">More info</a>
+  </div>
+</div>
 {{/each}}
