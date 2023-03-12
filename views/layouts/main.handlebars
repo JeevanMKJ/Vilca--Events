@@ -10,10 +10,9 @@
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-    </a>
-
+    <a class="navbar-item" href="/">
+     <h1>Vilca Events</h1>
+</a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -56,11 +55,11 @@
         <div class="buttons">
           {{#if loggedIn}}
           <a href="/logout" class="button is-primary" id="logout">
-            <strong>Login</strong>
+            <strong>Logout</strong>
           </a>
           {{else}}
            <a href="/login" class="button is-primary" id="login">
-            <strong>Logout</strong>
+            <strong>Login</strong>
           </a>
           {{/if}}
         </div>
