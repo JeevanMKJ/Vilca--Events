@@ -57,17 +57,25 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a href="/login" class="button is-primary">
-            <strong>Sign up</strong>
+          {{#if loggedIn}}
+          <a href="/logout" class="button is-primary" id="logout">
+            <strong>Login</strong>
           </a>
-          <a class="button is-light">
-            Log in
+          {{else}}
+           <a href="/logout" class="button is-primary" id="login">
+            <strong>Logout</strong>
           </a>
+          {{/if}}
         </div>
       </div>
     </div>
   </div>
 </nav>
+<main class="container container-fluid mt-5">
   {{{body}}} 
+</main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>
