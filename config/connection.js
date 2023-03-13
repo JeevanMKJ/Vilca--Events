@@ -1,6 +1,6 @@
-const {Sequelize} = require('sequelize');
-const session = require("express-session");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const { Sequelize } = require('sequelize');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 require('dotenv').config();
 
 let sequelize;
@@ -30,5 +30,4 @@ const expressSessionConfig = {
   }),
 };
 
-module.exports = { sequelize, expressSessionConfig }
-
+module.exports = { sequelize, expressSessionConfig };
