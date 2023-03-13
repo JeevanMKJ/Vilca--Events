@@ -52,4 +52,8 @@ router.get('/logout', (req, res) => {
   res.render('logout');
 });
 
+router.get('/create', (req, res) => {
+  res.render('handleEvent');
+})
+
 module.exports = router;
