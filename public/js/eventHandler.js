@@ -62,7 +62,7 @@ const newEventHandler = async (event) => {
   
   document
     .querySelector('.new-event-form')
-    .addEventListener('submit', newEventHandler);
+    .addEventListener('click', newEventHandler);
   
   document
     .querySelector('.event-list')
