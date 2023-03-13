@@ -1,77 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>Vilca Events</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <title>Vilca Events</title>
 </head>
+
 <body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-     <h1>Vilca Events</h1>
-</a>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Home
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-1" href="/">
+        <h1>Vilca Events</h1>
       </a>
-
-      <a class="navbar-item">
-        Upcoming Events
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
+    </div>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Create an Event
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
         </a>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-           Create
-          </a>
-          <a class="navbar-item">
-            Update
-          </a>
-          <a class="navbar-item">
-            Delete
-          </a>
-          <hr class="navbar-divider">
-        </div>
-      </div>
-    </div>
+        <a class="navbar-item">
+          My events
+        </a>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          {{#if loggedIn}}
-          <a href="/logout" class="button is-primary" id="logout">
-            <strong>Logout</strong>
-          </a>
-          {{else}}
-           <a href="/login" class="button is-primary" id="login">
-            <strong>Login</strong>
-          </a>
-          {{/if}}
+        <a class="navbar-item">
+          Create an Event
+        </a>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              {{#if loggedIn}}
+              <a href="/logout" class="button is-primary" id="logout">
+                <strong>Logout</strong>
+              </a>
+              {{else}}
+              <a href="/login" class="button is-primary" id="login">
+                <strong>Login</strong>
+              </a>
+              {{/if}}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</nav>
-<main class="container container-fluid mt-5">
-  {{{body}}} 
-</main>
+  </nav>
+  <main class="container container-fluid mt-5">
+    {{{body}}}
+  </main>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
+
 </html>
