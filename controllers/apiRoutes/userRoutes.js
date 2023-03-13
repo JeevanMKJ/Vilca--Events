@@ -55,6 +55,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
 // POST route to logout
 
 router.post('/logout', (req, res) => {
