@@ -2,13 +2,14 @@ const router = require('express').Router();
 
 const { Event } = require('../../models');
 const withAuth = require('../../utils/auth');
-// post to create event
-router.post('/add-event', withAuth, async (req, res) => {
+// post to create evnet
+router.post('/', withAuth, async(req, res) => {
   try {
     const newEvent = await Event.create({
       ...req.body,
       user_id: req.sessionStore.user_id,
     });
+
 
     res.status(200).json(newEvent);
   } catch (err) {
