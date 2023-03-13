@@ -4,9 +4,10 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const config = require('./config/connection');
 const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
 const app = express();
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 const PORT = process.env.PORT || 3001;
 
 app.use(session(config.expressSessionConfig));
