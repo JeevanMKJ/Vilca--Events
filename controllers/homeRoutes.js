@@ -1,14 +1,14 @@
 // get redirect to handle events
-const router = require("express").Router();
-const { Event, User } = require("../models");
+const router = require('express').Router();
+const { Event } = require('../models');
 
 // get to request all events from db
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const dbEventData = await Event.findAll();
-    
+
     const events = dbEventData.map((event) => event.get({ plain: true }));
-   console.log(events);
+    console.log(events);
     res.render('homepage', {
       events,
       loggedIn: req.session.loggedIn,
@@ -20,7 +20,6 @@ router.get("/", async (req, res) => {
 });
 
 // get request event by id
-
 router.get('/event/:id', async (req, res) => {
   try {
     const eventData = await Event.findByPk(req.params.id, {
@@ -36,20 +35,20 @@ router.get('/event/:id', async (req, res) => {
 
     res.render('event', {
       ...event,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get("/login", (req, res) => {
+router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect('/');
     return;
   }
 
-  res.render("login");
+  res.render('login');
 });
 
 router.get('/logout', (req, res) => {
@@ -58,6 +57,8 @@ router.get('/logout', (req, res) => {
 
 router.get('/create', (req, res) => {
   res.render('handleEvent');
-})
+});
+
+
 
 module.exports = router;
