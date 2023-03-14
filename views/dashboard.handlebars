@@ -17,10 +17,13 @@
         </div>
     </div>
 </form> --}}
+{{#if myEvents.length}}
+<div class="events-list">
 {{#each myEvents as |event|}}
 <div class="card m-6">
   <div class="card-image">
-
+<button  type="button"  id="update-id" updateId="{{id}}">Update Blog</button>
+      <button type="button" delete-id="{{id}}">Delete Blog</button>
     <figure class="image is-256x256">
       <img src="{{image}}" alt="Placeholder image">
     </figure>
@@ -35,9 +38,29 @@
       <a href="/event/{{id}}">More info</a>
     </div>
   </div>
-</div>
-</div>
-</div>
+  <form id="new-event-form-{{id}}" class="is-hidden">
+    <div class="columns card m-5">
+<body>
+        <div class="card-content column is-two-thirds is-centered">
+            <p>Create an Event</p>
+            <input class="card-content input is-small" id="update-image-{{id}}" type="text" placeholder="Enter a link to an image for your event">
+            <input class="card-content input is-small" id="update-title-{{id}}" type="text" placeholder="Event Title">
+            <input class="card-content input is-small" id="update-date-{{id}}" type="text" placeholder="Event Date">
+            <input class="card-content input is-small" id="update-time-{{id}}" type="text" placeholder="Event Time">
+            <input class="card-content input is-small" id="update-description-{{id}}" type="text" placeholder="Event Description">
+            <input class="card-content input is-small" id="update-location-{{id}}" type="text" placeholder="Event Location">
+            <input class="card-content input is-small" id="update-email-{{id}}" type="text" placeholder="Email">
+            <input class="card-content input is-small" id="update-social-{{id}}" type="text" placeholder="Social">
+            <button id="submit-updated-event" updateId="{{id}}">Submit</button>
 
-
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</div>
 {{/each}}
+</div>
+{{/if}}
+
+<script src="./js/dashboard.js"></script>

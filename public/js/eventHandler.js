@@ -1,6 +1,5 @@
 const newEventHandler = async (event) => {
   event.preventDefault();
-console.log('we did it')
   const event_image = document.querySelector('#image').value.trim();
   const event_title = document.querySelector('#title').value.trim();
   const date = document.querySelector('#date').value.trim();
