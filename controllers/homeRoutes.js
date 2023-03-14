@@ -1,6 +1,6 @@
 // get redirect to handle events
 const router = require('express').Router();
-const { Event } = require('../models');
+const { Event, User } = require('../models');
 
 // get to request all events from db
 router.get('/', async (req, res) => {
