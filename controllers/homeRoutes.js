@@ -56,9 +56,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/create', (req, res) => {
-  res.render('handleEvent');
+  res.render('handleEvent', { loggedIn: req.session.loggedIn });
 });
-
-
 
 module.exports = router;

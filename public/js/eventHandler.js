@@ -1,6 +1,6 @@
 const newEventHandler = async (event) => {
   event.preventDefault();
-
+console.log('we did it')
   const event_image = document.querySelector('#image').value.trim();
   const event_title = document.querySelector('#title').value.trim();
   const date = document.querySelector('#date').value.trim();
@@ -20,7 +20,7 @@ const newEventHandler = async (event) => {
     email &&
     social
   ) {
-    const response = await fetch(`/events/add-event`, {
+    const response = await fetch('/api/events/add-event', {
       method: 'POST',
       body: JSON.stringify({
         event_image,
@@ -36,15 +36,16 @@ const newEventHandler = async (event) => {
         'Content-Type': 'application/json',
       },
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace('/');
+      console.log('event saved');
     } else {
-      alert('Failed to create project');
+      alert('Failed to create event');
     }
   }
 };
 
 document
-  .querySelector('.new-event-form')
+  .getElementById('createEvent')
   .addEventListener('click', newEventHandler);
