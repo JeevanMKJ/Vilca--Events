@@ -77,3 +77,27 @@ updateBlogBtns.forEach((el) => el.addEventListener('click', updateFormHandler));
 submitUpdatedBlogBtns.forEach((el) =>
   el.addEventListener('click', submitFormHandler)
 );
+
+const delButtonHandler = async (event) => {
+  console.log('clicked');
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`api/events/${id}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      console.log(response);
+      alert('Failed to delete event');
+    }
+  }
+};
+
+document
+  .querySelector('.events-list')
+  .addEventListener('click', delButtonHandler);
+
