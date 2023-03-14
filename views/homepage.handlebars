@@ -1,6 +1,7 @@
 {{#each events as |event|}}
 <div class="card m-6">
   <div class="card-image">
+
     <figure class="image is-256x256">
       <img src="{{image}}" alt="Placeholder image">
     </figure>
@@ -10,6 +11,7 @@
     <p class="subtitle is-4"></p>
     <div class="content p-2">
       <time>{{format_date date}} at {{time}}</time>
+
       <br>
       <a href="/event/{{id}}">More info</a>
     </div>
