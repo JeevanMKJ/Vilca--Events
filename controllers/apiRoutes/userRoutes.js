@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
         email: req.body.email,
       },
     });
-
+    console.log(selectUser)
     if (!selectUser) {
       return res.status(404).json({
         message: "Incorrect input. Please Try again",
@@ -88,7 +88,9 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      return res.status(200).json({ message: "You are now logged in!" });
+      req.session.user_id = selectUser.id;
+      req.session.username = selectUser.username;
+      return res.status(200).json({ message: 'You are now logged in!' });
     });
   } catch (error) {
     return res.status(500).json({ message: "An error has occured" });

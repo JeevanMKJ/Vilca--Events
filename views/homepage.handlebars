@@ -1,21 +1,24 @@
 {{#each events as |event|}}
-<div class="card">
+<div class="card m-6">
   <div class="card-image">
-    <figure class="image is-4x3">
+
+    <figure class="image is-256x256">
       <img src="{{image}}" alt="Placeholder image">
     </figure>
   </div>
-      <div class="media-content">
-        <p class="title is-4">{{title}}</p>
-        <p class="subtitle is-6">{{format_date date}}{{time}}</p>
-      </div>
-    </div>
+  <div class="media-content p-2 has-text-centered">
+    <p class="title is-1 p-2">{{title}}</p>
+    <p class="subtitle is-4"></p>
+    <div class="content p-2">
+      <time>{{format_date date}} at {{time}}</time>
 
-    <div class="content">
-      <a href="/event/{{id}}">More info</a>
       <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <a href="/event/{{id}}">More info</a>
     </div>
   </div>
 </div>
+</div>
+</div>
+
+
 {{/each}}

@@ -1,20 +1,15 @@
 <div class="card">
+  <p class="title has-text-centered is-1 p-2">{{title}}</p>
   <div class="card-image">
-    <figure class="image is-4by3">
+    <figure class="image is-256x256">
       <img src="{{image}}" alt="Placeholder image">
     </figure>
   </div>
-      <div class="media-content">
-        <p class="title is-4">{{user.username}}</p>
-        <p class="subtitle is-6">{{social}}</p>
-        <p class="subtitle is-6">{{email}}</p>
-      </div>
-    </div>
-
-    <div class="content">
-      {{description}}
-      <br>
-      <time datetime="2016-1-1">{{location}} at {{format_date date}}-{{time}}</time>
-    </div>
+  <div class="media-content has-text-centered m-4 p-4">
+    <p class="title is 4">{{description}}</p>
+    <p class="subtitle is-6">{{location}} at {{format_date date}}-{{time}}</p>
+    <p class="subtitle is-6">Posted by: {{user.username}}</p>
+    <p class="subtitle is-6">Social media: {{social}}</p>
+    <p class="subtitle is-6">Email: {{email}}</p>
   </div>
 </div>
