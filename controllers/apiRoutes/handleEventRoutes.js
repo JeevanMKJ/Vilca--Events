@@ -30,7 +30,7 @@ router.post('/add-event', async (req, res) => {
       ) {
         return res.status(200).json(newEvent);
       } else {
-        console.log('SOMETHING IS WRONG')
+        console.log('SOMETHING IS WRONG <3')
       }
   } catch (err) {
     res.status(400).json(err);
