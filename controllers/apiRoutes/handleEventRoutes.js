@@ -1,21 +1,42 @@
 const router = require('express').Router();
 
-const { Event } = require('../../models');
+const { Event, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 // post to create evnet
-router.post('/', withAuth, async(req, res) => {
+router.post('/add-event', async (req, res) => {
   try {
-    const newEvent = await Event.create({
-      ...req.body,
-      user_id: req.sessionStore.user_id,
-    });
-
-
-    res.status(200).json(newEvent);
+      const newEvent = await Event.create({
+        image: req.body.event_image,
+        title: req.body.event_title,
+        date: req.body.date,
+        time: req.body.time,
+        description: req.body.description,
+        location: req.body.location,
+        email: req.body.email,
+        social: req.body.social,
+        user_id: req.session.user_id,
+      });
+      console.log(newEvent);
+      if (
+        newEvent.image &&
+        newEvent.title &&
+        newEvent.date &&
+        newEvent.time &&
+        newEvent.description &&
+        newEvent.location &&
+        newEvent.email &&
+        newEvent.social &&
+        newEvent.user_id
+      ) {
+        return res.status(200).json(newEvent);
+      } else {
+        console.log('SOMETHING IS WRONG')
+      }
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
 // update to update event
 router.put('/:id', withAuth, async (req, res) => {
   try {

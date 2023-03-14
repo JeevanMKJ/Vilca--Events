@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
         email: req.body.email,
       },
     });
-
+    console.log(selectUser)
     if (!selectUser) {
       return res.status(404).json({
         message: 'This user does not exist! Please create a new account',
@@ -48,6 +48,8 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = selectUser.id;
+      req.session.username = selectUser.username;
       return res.status(200).json({ message: 'You are now logged in!' });
     });
   } catch (error) {

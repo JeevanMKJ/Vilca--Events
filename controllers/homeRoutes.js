@@ -1,6 +1,6 @@
 // get redirect to handle events
 const router = require('express').Router();
-const { Event } = require('../models');
+const { Event, User } = require('../models');
 
 // get to request all events from db
 router.get('/', async (req, res) => {
@@ -56,9 +56,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/create', (req, res) => {
-  res.render('handleEvent');
+  res.render('handleEvent', { loggedIn: req.session.loggedIn });
 });
-
-
 
 module.exports = router;
