@@ -1,5 +1,9 @@
 const newEventHandler = async (event) => {
   event.preventDefault();
+<<<<<<< Updated upstream
+=======
+  console.log('we did it');
+>>>>>>> Stashed changes
   const event_image = document.querySelector('#image').value.trim();
   const event_title = document.querySelector('#title').value.trim();
   const date = document.querySelector('#date').value.trim();
@@ -41,10 +45,13 @@ const newEventHandler = async (event) => {
       console.log('event saved');
     } else {
       alert('Failed to create event');
+      alert('Failed to create event');
     }
   }
 };
 
+
 document
   .getElementById('createEvent')
   .addEventListener('click', newEventHandler);
+

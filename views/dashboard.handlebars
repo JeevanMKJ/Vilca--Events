@@ -20,7 +20,7 @@
 {{#if myEvents.length}}
 <div class="events-list">
 {{#each myEvents as |event|}}
-<div class="card m-6">
+<div class="card m-6 events-list">
   <div class="card-image">
 <button  type="button"  id="update-id" updateId="{{id}}">Update Blog</button>
       <button type="button" delete-id="{{id}}">Delete Blog</button>
@@ -33,9 +33,10 @@
     <p class="subtitle is-4"></p>
     <div class="content p-2">
       <time>{{format_date date}} at {{time}}</time>
-
-      <br>
-      <a href="/event/{{id}}">More info</a>
+      <div class="button-list">
+        <button class="button has-background-warning" data-id="{{event.id}}">UPDATE</button>
+        <button class="button has-background-danger"  data-id="{{event.id}}" id="deleteBtn">DELETE</button>
+      </div>
     </div>
   </div>
   <form id="new-event-form-{{id}}" class="is-hidden">
@@ -64,3 +65,5 @@
 {{/if}}
 
 <script src="./js/dashboard.js"></script>
+
+<script src="/js/eventHandler.js"></script>
