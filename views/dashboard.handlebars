@@ -1,4 +1,4 @@
-<form class="new-event-form">
+{{!-- <form class="new-event-form">
     <div class="columns card m-5">
 <body>
         <div class="card-content column is-two-thirds is-centered">
@@ -16,4 +16,28 @@
 
         </div>
     </div>
-</form>
+</form> --}}
+{{#each myEvents as |event|}}
+<div class="card m-6">
+  <div class="card-image">
+
+    <figure class="image is-256x256">
+      <img src="{{image}}" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="media-content p-2 has-text-centered">
+    <p class="title is-1 p-2">{{title}}</p>
+    <p class="subtitle is-4"></p>
+    <div class="content p-2">
+      <time>{{format_date date}} at {{time}}</time>
+
+      <br>
+      <a href="/event/{{id}}">More info</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+{{/each}}
