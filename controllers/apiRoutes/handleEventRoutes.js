@@ -29,14 +29,9 @@ router.post('/add-event', withAuth, async (req, res) => {
       newEvent.user_id
     ) {
       return res.status(200).json(newEvent);
-<<<<<<< Updated upstream
-    }
-    console.log('SOMETHING IS WRONG <3');
-=======
     } else {
       console.log('SOMETHING IS WRONG')
     }
->>>>>>> Stashed changes
   } catch (err) {
     res.status(400).json(err);
   }
