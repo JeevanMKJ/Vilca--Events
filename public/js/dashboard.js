@@ -79,15 +79,12 @@ submitUpdatedBlogBtns.forEach((el) =>
 );
 
 const delButtonHandler = async (event) => {
-  console.log('clicked');
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-
+  if (event.target.hasAttribute('delete-id')) {
+    const id = event.target.getAttribute('delete-id');
     const response = await fetch(`api/events/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
     });
-
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
