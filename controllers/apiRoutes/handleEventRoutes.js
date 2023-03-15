@@ -29,8 +29,10 @@ router.post('/add-event', withAuth, async (req, res) => {
       newEvent.user_id
     ) {
       return res.status(200).json(newEvent);
+
     }
     console.log('SOMETHING IS WRONG <3');
+
   } catch (err) {
     res.status(400).json(err);
   }
