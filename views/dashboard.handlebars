@@ -1,29 +1,8 @@
-{{!-- <form class="new-event-form">
-    <div class="columns card m-5">
-<body>
-        <div class="card-content column is-two-thirds is-centered">
-            <p>Create an Event</p>
-            <input class="card-content input is-small" id="image" type="text" placeholder="Enter a link to an image for your event">
-            <input class="card-content input is-small" id="title" type="text" placeholder="Event Title">
-            <input class="card-content input is-small" id="date" type="text" placeholder="Event Date">
-            <input class="card-content input is-small" id="time" type="text" placeholder="Event Time">
-            <input class="card-content input is-small" id="description" type="text" placeholder="Event Description">
-            <input class="card-content input is-small" id="location" type="text" placeholder="Event Location">
-            <input class="card-content input is-small" id="email" type="text" placeholder="Email">
-            <input class="card-content input is-small" id="social" type="text" placeholder="Social">
-
-            <button>Submit</button>
-
-        </div>
-    </div>
-</form> --}}
 {{#if myEvents.length}}
 <div class="events-list">
 {{#each myEvents as |event|}}
 <div class="card m-6 events-list">
   <div class="card-image">
-<button  type="button"  id="update-id" updateId="{{id}}">Update Blog</button>
-      <button type="button" delete-id="{{id}}">Delete Blog</button>
     <figure class="image is-256x256">
       <img src="{{image}}" alt="Placeholder image">
     </figure>
@@ -34,8 +13,8 @@
     <div class="content p-2">
       <time>{{format_date date}} at {{time}}</time>
       <div class="button-list">
-        <button class="button has-background-warning" data-id="{{event.id}}">UPDATE</button>
-        <button class="button has-background-danger"  data-id="{{event.id}}" id="deleteBtn">DELETE</button>
+        <button class="button has-background-warning" id="update-id" updateId="{{id}}">UPDATE</button>
+        <button class="button has-background-danger"  delete-id="{{id}}" id="deleteBtn">DELETE</button>
       </div>
     </div>
   </div>
@@ -56,14 +35,13 @@
         </div>
     </div>
 </form>
-</div>
-</div>
+
 </div>
 {{/each}}
-</div>
-</div>
+
 {{/if}}
+
+</div>
 
 <script src="/js/dashboard.js"></script>
 
-{{!-- <script src="/js/eventHandler.js"></script> --}}
