@@ -29,14 +29,8 @@ router.post('/add-event', withAuth, async (req, res) => {
       newEvent.user_id
     ) {
       return res.status(200).json(newEvent);
-<<<<<<< Updated upstream
     }
     console.log('SOMETHING IS WRONG <3');
-=======
-    } else {
-      console.log('SOMETHING IS WRONG')
-    }
->>>>>>> Stashed changes
   } catch (err) {
     res.status(400).json(err);
   }
@@ -59,6 +53,7 @@ router.put('/:id', async (req, res) => {
        {
       where: {
         id: req.params.id,
+        user_id: req.session.user_id
       },
     });
     if (!userData[0]) {
@@ -72,7 +67,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // delete to delete event
-router.delete(':/id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.destroy({
       where: {
