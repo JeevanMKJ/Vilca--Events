@@ -3,8 +3,6 @@
 {{#each myEvents as |event|}}
 <div class="card m-6 events-list">
   <div class="card-image">
-{{!-- <button  type="button"  id="update-id" updateId="{{id}}">Update Blog</button>
-      <button type="button" delete-id="{{id}}">Delete Blog</button> --}}
     <figure class="image is-256x256">
       <img src="{{image}}" alt="Placeholder image">
     </figure>
@@ -15,14 +13,13 @@
     <div class="content p-2">
       <time>{{format_date date}} at {{time}}</time>
       <div class="button-list">
-        <button class="button has-background-warning" data-id="{{event.id}}">UPDATE</button>
-        <button class="button has-background-danger"  data-id="{{event.id}}" id="deleteBtn">DELETE</button>
+        <button class="button has-background-warning" id="update-id" updateId="{{id}}">UPDATE</button>
+        <button class="button has-background-danger"  delete-id="{{id}}" id="deleteBtn">DELETE</button>
       </div>
     </div>
   </div>
   <form id="new-event-form-{{id}}" class="is-hidden">
     <div class="columns card m-5">
-<body>
         <div class="card-content column is-two-thirds is-centered">
             <p>Create an Event</p>
             <input class="card-content input is-small" id="update-image-{{id}}" type="text" placeholder="Enter a link to an image for your event">
@@ -38,12 +35,13 @@
         </div>
     </div>
 </form>
-</div>
-</div>
+
 </div>
 {{/each}}
-</div>
+
 {{/if}}
+
+</div>
 
 <script src="/js/dashboard.js"></script>
 
