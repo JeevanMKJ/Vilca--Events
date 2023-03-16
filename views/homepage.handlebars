@@ -1,3 +1,4 @@
+{{#if events.length}}
 <div id="homeevent-list">
 {{#each events as |event|}}
 <div class="card m-6">
@@ -18,11 +19,10 @@
       <button upvote="{{id}}" id="like-button">like</button>
     </div>
   </div>
-</div>
-</div>
-</div>
 
 
 {{/each}}
+
+{{/if}}
 </div>
 <script src="/js/upvotehandler.js"></script>
