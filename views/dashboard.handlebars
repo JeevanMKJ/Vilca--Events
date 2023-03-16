@@ -11,7 +11,10 @@
     <p class="title is-1 p-1">{{title}}</p>
     <p class="subtitle is-4"></p>
     <div class="content p-1">
+      <p class="description">{{description}}</p>
+      <p class="upvotes">Votes: {{upvotes}}</p>
       <time>{{format_date date}} at {{time}}</time>
+      <p class="location">Location: {{location}}</p>
       <div class="is-flex is-justify-content-right button-list">
         <button class="button is-small mt-3 has-background-warning" id="update-id" updateId="{{id}}">UPDATE</button>
         <button class="button is-small mt-3 ml-3 has-background-danger"  delete-id="{{id}}" id="deleteBtn">DELETE</button>
@@ -26,7 +29,7 @@
             <input class="card-content input is-small" id="update-title-{{id}}" type="text" placeholder="{{title}}">
             <input class="card-content input is-small" id="update-date-{{id}}" type="text" placeholder="{{format_date date}}">
             <input class="card-content input is-small" id="update-time-{{id}}" type="text" placeholder="{{time}}">
-            <textarea class="textarea input is-small" id="description" type="text" placeholder="{{description}}"></textarea>
+            <textarea class="textarea input is-small" id="update-description-{{id}}" type="text" placeholder="{{description}}"></textarea>
             <input class="card-content input is-small" id="update-location-{{id}}" type="text" placeholder="{{location}}">
             <input class="card-content input is-small" id="update-email-{{id}}" type="text" placeholder="{{email}}">
             <input class="card-content input is-small" id="update-social-{{id}}" type="text" placeholder="{{social}}">
