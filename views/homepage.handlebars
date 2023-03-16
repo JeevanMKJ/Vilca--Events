@@ -1,29 +1,34 @@
 {{#if events.length}}
 <div id="homeevent-list">
-{{#each events as |event|}}
-<div class="card m-6">
-  <div class="card-image">
+  {{#each events as |event|}}
+  <div class="card m-6">
+    <div class="card-image">
 
-    <figure class="image is-256x256">
-      <img src="{{image}}" alt="Placeholder image">
-    </figure>
-  </div>
-  <div class="media-content p-2 has-text-centered">
-    <p class="title is-1 p-2">{{title}}</p>
-    <p class="subtitle is-4"></p>
-    <div class="content p-2">
-      <time>{{format_date date}} at {{time}}</time>
-
-      <br>
-      <p class="upvotes">Votes for favorite: {{upvotes}}</p>
-      <a more-info="{{id}}" href="/event/{{id}}">More info</a>
-      <button upvote="{{id}}" id="like-button">like</button>
+      <figure class="image is-256x256">
+        <img src="{{image}}" alt="Placeholder image">
+      </figure>
     </div>
+    <div class="media-content p-2 has-text-centered">
+      <p class="title is-1 p-2">{{title}}</p>
+      <p class="subtitle is-4"></p>
+      <div class="content p-2 is-size-5">
+        <time>{{format_date date}} at {{time}}</time>
+
+        <br>
+        <p class="upvotes">Votes for favorite: {{upvotes}}</p>
+        <a class="is-size-6" more-info="{{id}}" href="/event/{{id}}">More info</a>
+        <span class="control is-flex is-justify-content-right">
+          <span class="icon is-large has-text-link">
+            <i class="button fas fa-thumbs-up" upvote="{{id}}"
+            id="like-button"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+
+
+    {{/each}}
+
+    {{/if}}
   </div>
-
-
-{{/each}}
-
-{{/if}}
-</div>
-<script src="/js/upvotehandler.js"></script>
+  <script src="/js/upvotehandler.js"></script>
