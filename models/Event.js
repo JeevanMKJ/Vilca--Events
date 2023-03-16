@@ -48,6 +48,10 @@ Event.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    upvotes: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

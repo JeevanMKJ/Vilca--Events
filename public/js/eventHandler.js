@@ -47,8 +47,8 @@ const newEventHandler = async (event) => {
   }
 };
 
-
 document
   .getElementById('createEvent')
   .addEventListener('click', newEventHandler);
+
 
