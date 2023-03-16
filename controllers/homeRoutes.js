@@ -2,11 +2,14 @@
 const router = require('express').Router();
 const { Event, User } = require('../models');
 const withAuth = require('../utils/auth');
+const sequelize = require('sequelize')
 
 // get to request all events from db
 router.get('/', async (req, res) => {
   try {
-    const dbEventData = await Event.findAll();
+    const dbEventData = await Event.findAll({
+      order: sequelize.literal('upvotes DESC'),
+    });
 
     const events = dbEventData.map((event) => event.get({ plain: true }));
     console.log(events);
