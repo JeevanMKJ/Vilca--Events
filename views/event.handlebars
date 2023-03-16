@@ -1,13 +1,65 @@
-<div class="card">
+{{!-- <div class="card">
   <p class="title has-text-centered is-1 p-2">{{title}}</p>
   <div class="card-image">
     <figure class="image is-256x256">
-      <img src="{{image}}" alt="Placeholder image">
+      <img src="{{image}}" alt="Placeholder image" />
     </figure>
   </div>
   <div class="media-content has-text-centered m-4 p-4">
     <p class="title is-size-4">{{description}}</p>
-    <p class="subtitle is-size-5">{{location}} at {{format_date date}}-{{time}}</p>
+    <p class="subtitle is-size-5">{{location}}
+      at
+      {{format_date date}}-{{time}}</p>
+    <p class="subtitle is-6">Posted by: {{user.username}}</p>
+    <p class="subtitle is-6">Social media: {{social}}</p>
+    <p class="subtitle is-6">Email: {{email}}</p>
+  </div>
+</div> --}}
+
+{{!-- <script id="card-template" type="text/x-handlebars-template">
+  <div class="card"> <p class="title has-text-centered is-1 p-2">{{title}}</p>
+  <div class="card-image"> <figure class="image is-256x256"> <img src="{{image}}"
+  alt="Placeholder image"/> </figure> </div> <div class="media-content
+  has-text-centered m-4 p-4"> <p class="title is-size-4">{{description}}</p>
+  {{isUrl location}}
+    <a class="subtitle is-size-5" href="{{location}}"></a>
+  {{else}}
+    <p class="subtitle is-size-5">{{location}}</p>
+  {{/isUrl}}
+  <p class="subtitle is-6">Posted by:
+  {{user.username}}</p> <p class="subtitle is-6">Social media:
+  {{social}}</p> <p class="subtitle is-6">Email:
+  {{email}}</p> </div> </div>
+</script> --}}
+
+{{!-- <script id="card-template" type="text/x-handlebars-template">
+  <div class="card"> <p class="title has-text-centered is-1 p-2">{{title}}</p>
+  <div class="card-image"> <figure class="image is-256x256"> <img src="{{image}}"
+  alt="Placeholder image"/> </figure> </div> <div class="media-content
+  has-text-centered m-4 p-4"> <p class="title is-size-4">{{description}}</p> --}}
+{{!-- {{#isUrl location}}
+    {{test}}
+  {{/isUrl}} --}}
+{{!-- <p>{{location}}</p> <p class="subtitle is-6">Posted by:
+  {{user.username}}</p> <p class="subtitle is-6">Social media:
+  {{social}}</p> <p class="subtitle is-6">Email:
+  {{email}}</p> </div> </div>
+</script> --}}
+
+{{! <script src="/js/event.js"></script> }}
+
+<div class="card">
+  <p class="title has-text-centered is-1 p-2">{{title}}</p>
+  <div class="card-image">
+    <figure class="image is-256x256">
+      <img src="{{image}}" alt="Placeholder image" />
+    </figure>
+  </div>
+  <div class="media-content has-text-centered m-4 p-4">
+    <p class="title is-size-4">{{description}}</p>
+    {{#isUrl location}}
+      {{test}}
+    {{/isUrl}}
     <p class="subtitle is-6">Posted by: {{user.username}}</p>
     <p class="subtitle is-6">Social media: {{social}}</p>
     <p class="subtitle is-6">Email: {{email}}</p>
