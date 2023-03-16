@@ -55,9 +55,10 @@
       <div class="navbar-item">
         <div class="buttons">
           {{#if loggedIn}}
-          <a href="/logout" class="button is-outlined" id="logout">
-            <strong>Logout</strong>
-          </a>
+          
+          <button class="is-primary is-medium js-modal-trigger" id="logout" data-target="modal-js-example">
+  logout
+</button>
           {{else}}
           <a href="/login" class="button is-outlined" id="login">
             <strong>Login</strong>
@@ -73,6 +74,18 @@
   </main>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
+  <div id="modal-js-example" class="modal">
+  <div class="modal-background"></div>
+
+  <div class="modal-content">
+    <div class="box">
+      <p>See ya soon!</p>
+      <!-- Your content -->
+    </div>
+  </div>
+
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
   {{/if}}
 </body>
 
