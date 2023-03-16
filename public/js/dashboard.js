@@ -21,6 +21,7 @@ const updateFormHandler = async (event) => {
   }
 };
 
+
 const submitFormHandler = async (event) => {
   event.preventDefault();
   const id = event.currentTarget.getAttribute('updateId');
@@ -73,11 +74,6 @@ const submitFormHandler = async (event) => {
   }
 };
 
-updateBlogBtns.forEach((el) => el.addEventListener('click', updateFormHandler));
-submitUpdatedBlogBtns.forEach((el) =>
-  el.addEventListener('click', submitFormHandler)
-);
-
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('delete-id')) {
     const id = event.target.getAttribute('delete-id');
@@ -94,7 +90,14 @@ const delButtonHandler = async (event) => {
   }
 };
 
+updateBlogBtns.forEach((el) => el.addEventListener('click', updateFormHandler));
+submitUpdatedBlogBtns.forEach((el) =>
+  el.addEventListener('click', submitFormHandler)
+);
+
+
+
 document
-  .querySelector('#deleteBtn')
+  .querySelector('.events-list')
   .addEventListener('click', delButtonHandler);
 
