@@ -8,20 +8,20 @@
     </figure>
   </div>
   <div class="media-content p-2 has-text-centered">
-    <p class="title is-1 p-2">{{title}}</p>
+    <p class="title is-1 p-1">{{title}}</p>
     <p class="subtitle is-4"></p>
-    <div class="content p-2">
+    <div class="content p-1">
       <time>{{format_date date}} at {{time}}</time>
-      <div class="button-list">
-        <button class="button has-background-warning" id="update-id" updateId="{{id}}">UPDATE</button>
-        <button class="button has-background-danger"  delete-id="{{id}}" id="deleteBtn">DELETE</button>
+      <div class="is-flex is-justify-content-right button-list">
+        <button class="button is-small mt-3 has-background-warning" id="update-id" updateId="{{id}}">UPDATE</button>
+        <button class="button is-small mt-3 ml-3 has-background-danger"  delete-id="{{id}}" id="deleteBtn">DELETE</button>
       </div>
     </div>
   </div>
   <form id="new-event-form-{{id}}" class="is-hidden ">
     <div class="columns is-centered card m-5">
         <div class="card-content column is-two-thirds text-is-centered">
-            <p>Create an Event</p>
+            <p class="is-size-3 is-flex is-justify-content-center">Update your Event</p>
             <input class="card-content input is-small" id="update-image-{{id}}" type="text" placeholder="{{image}}">
             <input class="card-content input is-small" id="update-title-{{id}}" type="text" placeholder="{{title}}">
             <input class="card-content input is-small" id="update-date-{{id}}" type="text" placeholder="{{format_date date}}">
@@ -30,7 +30,7 @@
             <input class="card-content input is-small" id="update-location-{{id}}" type="text" placeholder="{{location}}">
             <input class="card-content input is-small" id="update-email-{{id}}" type="text" placeholder="{{email}}">
             <input class="card-content input is-small" id="update-social-{{id}}" type="text" placeholder="{{social}}">
-            <button id="submit-updated-event" updateId="{{id}}">Submit</button>
+            <button class="button is-small is-success mt-2" id="submit-updated-event" updateId="{{id}}">Submit Update</button>
 
         </div>
     </div>
