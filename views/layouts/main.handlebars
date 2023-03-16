@@ -6,13 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rokkitt">
+  <style>
+    body {
+      font-family: "Rokkitt", sans-serif;
+    }
+  </style>
   <title>Vilca Events</title>
 </head>
 
 <body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item is-size-1" href="/">
+      <a class="navbar-item is-size-1 has-text-weight-semibold" href="/">
         <h1>Vilca Events</h1>
       </a>
 
@@ -25,9 +31,9 @@
           );
         }
       </script>
-      <script type="text/javascript" 
-      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-      </script>
+      <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
@@ -49,11 +55,11 @@
       <div class="navbar-item">
         <div class="buttons">
           {{#if loggedIn}}
-          <a href="/logout" class="button is-primary" id="logout">
+          <a href="/logout" class="button is-outlined" id="logout">
             <strong>Logout</strong>
           </a>
           {{else}}
-          <a href="/login" class="button is-primary" id="login">
+          <a href="/login" class="button is-outlined" id="login">
             <strong>Login</strong>
           </a>
           {{/if}}
