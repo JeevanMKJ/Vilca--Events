@@ -100,4 +100,3 @@ submitUpdatedBlogBtns.forEach((el) =>
 document
   .querySelector('.events-list')
   .addEventListener('click', delButtonHandler);
-

@@ -51,14 +51,16 @@
       Create an Event
     </a>
 
+    
+
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
           {{#if loggedIn}}
-          
-          <button class="is-primary is-medium js-modal-trigger" id="logout" data-target="modal-js-example">
-  logout
-</button>
+
+          <a class="button is-outlined js-modal-trigger" id="logout" data-target="modal-js-example">
+            <strong>Logout</strong>
+          </a>
           {{else}}
           <a href="/login" class="button is-outlined" id="login">
             <strong>Login</strong>
@@ -75,17 +77,17 @@
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   <div id="modal-js-example" class="modal">
-  <div class="modal-background"></div>
+    <div class="modal-background"></div>
 
-  <div class="modal-content">
-    <div class="box">
-      <p>See ya soon!</p>
-      <!-- Your content -->
+    <div class="modal-content">
+      <div class="box">
+        <p class="is-size-4 is-flex is-justify-content-center">Thanks for visiting! See ya soon!</p>
+        <!-- Your content -->
+      </div>
     </div>
-  </div>
 
-  <button class="modal-close is-large" aria-label="close"></button>
-</div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
   {{/if}}
 </body>
 

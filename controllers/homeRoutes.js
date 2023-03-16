@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 });
 
 // get request event by id
-router.get('/event/:id', async (req, res) => {
+router.get('/event/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
