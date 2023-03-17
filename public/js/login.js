@@ -19,7 +19,6 @@ const loginFormHandler = async (event) => {
     } else {
       const errorData = await response.json();
       alert(errorData.message);
-      // alert(response.statusText);
     }
   }
 };
