@@ -1,8 +1,8 @@
 // get redirect to handle events
 const router = require('express').Router();
-const { Event, User } = require('../models');
+const sequelize = require('sequelize');
+const { Event, User, SavedEvent } = require('../models');
 const withAuth = require('../utils/auth');
-const sequelize = require('sequelize')
 
 // get to request all events from db
 router.get('/', async (req, res) => {
@@ -57,6 +57,51 @@ router.get('/login', (req, res) => {
 
 router.get('/create', withAuth, (req, res) => {
   res.render('handleEvent', { loggedIn: req.session.loggedIn });
+});
+
+router.get('/savedEvents', async (req, res) => {
+  try {
+    const mySavedEventData = await SavedEvent.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['id'],
+        },
+        {
+          model: Event,
+          attributes: [
+            'id',
+            'image',
+            'title',
+            'date',
+            'time',
+            'description',
+            'location',
+            'email',
+            'social',
+          ],
+        },
+      ],
+    });
+    const mySavedEvents = mySavedEventData.map((events) =>
+      events.get({ plain: true })
+    );
+    console.log(mySavedEvents);
+    const { loggedIn } = req.session;
+    if (loggedIn) {
+      res.render('savedEvents', {
+        mySavedEvents,
+        loggedIn: req.session.loggedIn,
+      });
+      return;
+    }
+    res.render('login');
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;
