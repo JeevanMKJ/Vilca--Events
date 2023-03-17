@@ -1,9 +1,9 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const { Event, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Event, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 // post to create evnet
-router.post('/add-event', withAuth, async (req, res) => {
+router.post("/add-event", withAuth, async (req, res) => {
   try {
     const newEvent = await Event.create({
       image: req.body.event_image,
@@ -29,37 +29,37 @@ router.post('/add-event', withAuth, async (req, res) => {
       newEvent.user_id
     ) {
       return res.status(200).json(newEvent);
-
     }
-    console.log('SOMETHING IS WRONG <3');
-
+    console.log("SOMETHING IS WRONG <3");
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 // update to update event
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const userData = await Event.update(
-      {image: req.body.image,
-      title: req.body.title,
-      date: req.body.date,
-      time: req.body.time,
-      description: req.body.description,
-      location: req.body.location,
-      email: req.body.email,
-      social: req.body.social,
-      user_id: req.session.user_id,
-    },
-       {
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id
+      {
+        image: req.body.image,
+        title: req.body.title,
+        date: req.body.date,
+        time: req.body.time,
+        description: req.body.description,
+        location: req.body.location,
+        email: req.body.email,
+        social: req.body.social,
+        user_id: req.session.user_id,
       },
-    });
+      {
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
+      }
+    );
     if (!userData[0]) {
-      res.status(404).json({ message: 'No event with this id!' });
+      res.status(404).json({ message: "No event with this id!" });
       return;
     }
     res.status(200).json(userData);
@@ -69,7 +69,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // delete to delete event
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const eventData = await Event.destroy({
       where: {
@@ -79,7 +79,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!eventData) {
-      res.status(404).json({ message: 'No event with this id exists' });
+      res.status(404).json({ message: "No event with this id exists" });
       return;
     }
 
@@ -90,4 +90,3 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 module.exports = router;
-
