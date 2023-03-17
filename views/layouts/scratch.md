@@ -4,6 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bulma Navigation Tutorial</title>
+    {{! <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
+    /> }}
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
@@ -17,13 +21,12 @@
     </style>
   </head>
   <body>
-    <nav
-      class="navbar is-warning"
-      role="navigation"
-      aria-label="main navigation"
-    >
+    <nav class="navbar is-primary">
       <div class="container">
         <div class="navbar-brand">
+          {{! <a class="navbar-item" href="/" style="font-weight:bold;">
+
+          </a> }}
           <a class="navbar-item is-size-1 has-text-weight-semibold" href="/">
             <h1>Vilca Events</h1>
           </a>
@@ -46,9 +49,12 @@
           </span>
         </div>
         <div id="navMenu" class="navbar-menu">
-          <div class="navbar-start">
+          <div class="navbar-end">
+            <a href="/" class="navbar-item is-active">Vilca Events</a>
             <a href="/dashboard" class="navbar-item">My Events</a>
             <a href="/create" class="navbar-item">Create an Event</a>
+            <a href="#" class="navbar-item">Shop</a>
+            <a href="#" class="navbar-item">Examples</a>
           </div>
         </div>
       </div>
