@@ -42,7 +42,6 @@ const newEventHandler = async (event) => {
       console.log("event saved");
     } else {
       alert("Failed to create event");
-      alert("Failed to create event");
     }
   }
 };
