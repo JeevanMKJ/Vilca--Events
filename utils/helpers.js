@@ -10,7 +10,7 @@ module.exports = {
       return (
         "<a href='" +
         options.fn({ test: value }) +
-        "'>" +
+        "' target='_blank'>" +
         options.fn({ test: value }) +
         "</a>"
       );
