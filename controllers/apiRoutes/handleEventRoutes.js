@@ -1,16 +1,9 @@
 const router = require("express").Router();
 
-<<<<<<< HEAD
 const { Event, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 // post to create event
 router.post('/add-event', withAuth, async (req, res) => {
-=======
-const { Event, User } = require("../../models");
-const withAuth = require("../../utils/auth");
-// post to create evnet
-router.post("/add-event", withAuth, async (req, res) => {
->>>>>>> 6baf0781c6fe041e3ba0e0b1d0ef9ee4ec25a068
   try {
     const newEvent = await Event.create({
       image: req.body.event_image,
@@ -37,7 +30,9 @@ router.post("/add-event", withAuth, async (req, res) => {
     ) {
       return res.status(200).json(newEvent);
     }
+
     console.log("SOMETHING IS WRONG <3");
+
   } catch (err) {
     res.status(400).json(err);
   }

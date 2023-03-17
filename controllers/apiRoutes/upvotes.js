@@ -1,6 +1,13 @@
 const router = require('express').Router();
+<<<<<<< HEAD
 const sequelize = require('sequelize');
 const { User, Event } = require('../../models');
+=======
+
+const sequelize = require('sequelize');
+const { User, Event } = require('../../models');
+
+>>>>>>> 95180784fa637230de2bb059b2b41e9420c025fd
 
 router.put('/:id', async (req, res) => {
   try {
