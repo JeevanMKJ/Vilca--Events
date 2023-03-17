@@ -1,7 +1,9 @@
 {{#if events.length}}
 <div id="homeevent-list">
   {{#each events as |event|}}
-  <div class="card m-6">
+
+  <div class="columns card m-6">
+    <div class="columns card"></div>
     <div class="card-image">
 
       <figure class="image is-256x256">
@@ -19,17 +21,18 @@
         <a class="is-size-6" more-info="{{id}}" href="/event/{{id}}">More info</a>
         <span class="control is-flex is-justify-content-right">
           <span class="icon is-large has-text-link">
-            <i class="button fas fa-thumbs-up" upvote="{{id}}"
-            id="like-button"></i>
+            <i class="button fas fa-thumbs-up" upvote="{{id}}" id="like-button"></i>
           </span>
           <button id="save-event" class="button save-event" save-event="{{id}}">Save</button>
         </span>
       </div>
     </div>
   </div>
+</div>
 
-    {{/each}}
 
-    {{/if}}
-  </div>
-  <script src="/js/upvotehandler.js"></script>
+{{/each}}
+
+{{/if}}
+</div>
+<script src="/js/upvotehandler.js"></script>
