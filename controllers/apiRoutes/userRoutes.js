@@ -5,11 +5,6 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    // const dbUserData = await User.create({
-    //   username: req.body.username,
-    //   email: req.body.email,
-    //   password: req.body.password,
-    // });
     const { username, email, password } = req.body;
 
     // Email validation
@@ -50,10 +45,6 @@ router.post('/', async (req, res) => {
 
       res.status(200).json(dbUserData);
     });
-    // } catch (err) {
-    //   console.log(err);
-    //   res.status(500).json(err);
-    // }
   } catch (err) {
     console.log(err);
     if (err.errors[0].path === 'password') {
@@ -75,17 +66,18 @@ router.post('/login', async (req, res) => {
     console.log(selectUser);
     if (!selectUser) {
       return res.status(404).json({
-        message: 'Incorrect input. Please Try again',
-        // message: "This user does not exist! Please create a new account",
-        // edit this err message to be more specific.
-        // ---> message: "Incorrect input. Please Try again"
+
+        message: "Incorrect input. Please Try again",
+
       });
     }
 
     const isValidPassword = await selectUser.checkPassword(req.body.password);
 
     if (!isValidPassword) {
-      return res.status(404).json({ message: 'Wrong password' });
+
+      return res.status(404).json({ message: "Please try again." });
+
     }
 
     req.session.save(() => {

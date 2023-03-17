@@ -1,29 +1,69 @@
 {{#if loggedIn}}
-<form>
+  <form>
 
     <div class="columns card m-5 is-centered">
-        <div class="card-content column is-two-thirds">
-            <p class="is-size-3 is-flex is-justify-content-center">Create an Event</p>
-            <label class="label mt-3">Enter a link to an image for your event</label>
-            <input class="card-content input is-small" id="image" type="text" placeholder="Image Link">
-            <label class="label mt-2">Name of your event</label>
-            <input class="card-content input is-small" id="title" type="text" placeholder="Event Title">
-            <label class="label mt-2">Date of the event</label>
-            <input class="card-content input is-small" id="date" type="text" placeholder="Date">
-            <label class="label mt-2">Event Hours</label>
-            <input class="card-content input is-small" id="time" type="text" placeholder="Time">
-            <label class="label mt-2">A short description of your event</label>
-            <textarea class="textarea input is-small" id="description" type="text"
-                placeholder="Event Description"></textarea>
-            <label class="label mt-2">Where will the event take place</label>
-            <input class="card-content input is-small" id="location" type="text" placeholder="Location">
-            <label class="label mt-2">Contact Email</label>
-            <input class="card-content input is-small" id="email" type="text" placeholder="Email">
-            <label class="label mt-2">Social Media</label>
-            <input class="card-content input is-small" id="social" type="text" placeholder="Social">
-            <button class="button is-danger mt-3" id="createEvent">Submit</button>
-        </div>
+      <div class="card-content column is-two-thirds">
+        <p class="is-size-3 is-flex is-justify-content-center">Create an Event</p>
+        <label class="label mt-3">Enter a link to an image for your event
+          <span class="has-text-danger">*</span></label>
+        <input
+          class="card-content input is-small"
+          id="image"
+          type="text"
+          placeholder="Image Link"
+        />
+        <label class="label mt-2">Name of your event <span class="has-text-danger">*</span></label></label>
+        <input
+          class="card-content input is-small"
+          id="title"
+          type="text"
+          placeholder="Event Title"
+        />
+        <label class="label mt-2">Date of the event <span class="has-text-danger">*</span></label></label>
+        <input
+          class="card-content input is-small"
+          id="date"
+          type="text"
+          placeholder="Date"
+        />
+        <label class="label mt-2">Event Hours <span class="has-text-danger">*</span></label></label>
+        <input
+          class="card-content input is-small"
+          id="time"
+          type="text"
+          placeholder="Time"
+        />
+        <label class="label mt-2">A short description of your event <span class="has-text-danger">*</span></label></label>
+        <textarea
+          class="textarea input is-small"
+          id="description"
+          type="text"
+          placeholder="Event Description"
+        ></textarea>
+        <label class="label mt-2">Where will the event take place <span class="has-text-danger">*</span></label></label>
+        <input
+          class="card-content input is-small"
+          id="location"
+          type="text"
+          placeholder="Location"
+        />
+        <label class="label mt-2">Contact Email <span class="has-text-danger">*</span></label></label>
+        <input
+          class="card-content input is-small"
+          id="email"
+          type="text"
+          placeholder="Email"
+        />
+        <label class="label mt-2">Social Media <span class="has-text-danger">*</span></label></label>
+        <input
+          class="card-content input is-small"
+          id="social"
+          type="text"
+          placeholder="Social"
+        />
+        <button class="button is-danger mt-3" id="createEvent">Submit <span class="has-text-danger">*</span></button></button>
+      </div>
     </div>
-</form>
+  </form>
 {{/if}}
 <script src="/js/eventHandler.js"></script>

@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
 const { Event, User } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -30,14 +30,16 @@ router.post('/add-event', withAuth, async (req, res) => {
     ) {
       return res.status(200).json(newEvent);
     }
-    console.log('SOMETHING IS WRONG <3');
+
+    console.log("SOMETHING IS WRONG <3");
+
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 // update to update event
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const userData = await Event.update(
       {
@@ -59,7 +61,7 @@ router.put('/:id', async (req, res) => {
       }
     );
     if (!userData[0]) {
-      res.status(404).json({ message: 'No event with this id!' });
+      res.status(404).json({ message: "No event with this id!" });
       return;
     }
     res.status(200).json(userData);
@@ -69,7 +71,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // delete to delete event
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const eventData = await Event.destroy({
       where: {
@@ -79,7 +81,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!eventData) {
-      res.status(404).json({ message: 'No event with this id exists' });
+      res.status(404).json({ message: "No event with this id exists" });
       return;
     }
 
