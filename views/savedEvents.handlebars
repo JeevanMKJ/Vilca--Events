@@ -1,11 +1,13 @@
-{{#if events.length}}
-<div id="homeevent-list">
-  {{#each events as |event|}}
+<h1>Hello! You made it!</h1>
+
+{{#if savedEvents.length}}
+<div id="saved-events-list">
+  {{#each savedEvents as |event|}}
   <div class="card m-6">
     <div class="card-image">
 
       <figure class="image is-256x256">
-        <img src="{{image}}" alt="Placeholder image">
+        <img src="{{image}}" alt="Event image">
       </figure>
     </div>
     <div class="media-content p-2 has-text-centered">
@@ -22,11 +24,10 @@
             <i class="button fas fa-thumbs-up" upvote="{{id}}"
             id="like-button"></i>
           </span>
-          <button class="button save-event" id="{{id}}">Save</button>
         </span>
       </div>
     </div>
-  </div>
+
 
     {{/each}}
 
