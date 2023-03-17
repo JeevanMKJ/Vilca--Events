@@ -6,14 +6,16 @@ User.hasMany(Event, {
   foreignKey: 'user_id',
 });
 
-SavedEvent.hasMany(User, {
-  foreignKey: 'savedEvent_id',
-});
+// SavedEvent.hasMany(User, {
+//   foreignKey: 'savedEvent_id',
+// });
 
-SavedEvent.hasMany(Event, {
-  foreignKey: 'savedEvent_id',
+// SavedEvent.hasMany(Event, {
+//   foreignKey: 'savedEvent_id',
+// });
+Event.hasMany(SavedEvent, {
+  foreignKey: 'event_id',
 });
-
 User.hasMany(SavedEvent, {
   foreignKey: 'user_id',
 });
