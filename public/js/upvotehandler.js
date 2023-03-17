@@ -23,6 +23,25 @@ const updateUpvotes = async (event) => {
     document.location.replace(`event/${id}`);
   }
 };
+
+const saveNewEvent = async (event) => {
+  event.preventDefault();
+
+  const eventId = document.querySelector('save-event').getAttribute('id');
+  const response = await fetch(`/api/saveEvent`, {
+    method: 'POST',
+    body: JSON.stringify({ eventId }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert('Failed to save event. Please try again.');
+  }
+};
+
+document.querySelector('.save-event').addEventListener('click', saveNewEvent);
+
 document
   .getElementById('homeevent-list')
   .addEventListener('click', updateUpvotes);
