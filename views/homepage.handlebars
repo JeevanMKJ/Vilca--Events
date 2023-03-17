@@ -4,7 +4,7 @@
   <div class="card m-6">
     <div class="card-image">
 
-      <figure class="image is-128x128">
+      <figure class="image is-256x256">
         <img src="{{image}}" alt="Placeholder image">
       </figure>
     </div>
@@ -19,17 +19,19 @@
         <a class="is-size-6" more-info="{{id}}" href="/event/{{id}}">More info</a>
         <span class="control is-flex is-justify-content-right">
           <span class="icon is-large has-text-link">
-            <i class="button fas fa-thumbs-up" upvote="{{id}}"
-            id="like-button"></i>
+            <i class="button fas fa-thumbs-up" upvote="{{id}}" id="like-button"></i>
           </span>
-          <button id="save-event" class="button save-event" save-event="{{id}}">Save</button>
-        </span>
+          <span class="control is-flex is-justify-content-right ml-3">
+            <span class="icon is-large has-text-link">
+              <i class="button save-event fas fa-bookmark" id="save-event" save-event="{{id}}"></i>
+            </span>
+          </span>
       </div>
     </div>
   </div>
 
-    {{/each}}
+  {{/each}}
 
-    {{/if}}
-  </div>
-  <script src="/js/upvotehandler.js"></script>
+  {{/if}}
+</div>
+<script src="/js/upvotehandler.js"></script>
