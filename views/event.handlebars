@@ -7,9 +7,12 @@
   </div>
   <div class="media-content has-text-centered m-4 p-4">
     <p class="title is-size-4">{{description}}</p>
-    {{#isUrl location}}
-      {{test}}
-    {{/isUrl}}
+
+    <p class="subtitle is-6">Location:
+      {{#isUrl location}}
+        {{test}}
+      {{/isUrl}}</p>
+
     <p class="subtitle is-6">Posted by: {{user.username}}</p>
     <p class="subtitle is-6">Social media: {{social}}</p>
     <p class="subtitle is-6">Email: {{email}}</p>
