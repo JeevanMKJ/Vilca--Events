@@ -26,7 +26,6 @@ const submitFormHandler = async (event) => {
   event.preventDefault();
   const id = event.currentTarget.getAttribute('updateId');
   const image = document.getElementById(`update-image-${id}`).value.trim();
-  // console.log(id);
   const title = document.getElementById(`update-title-${id}`).value.trim();
   const date = document.getElementById(`update-date-${id}`).value.trim();
   const time = document.getElementById(`update-time-${id}`).value.trim();

@@ -20,7 +20,7 @@ const updateUpvotes = async (event) => {
     }
   } else if (event.target.hasAttribute('more-info')) {
     const id = event.target.getAttribute('more-info');
-    document.location.replace(`event/${id}`);
+    document.location.replace(`/event/${id}`);
   }
 };
 document
