@@ -1,20 +1,20 @@
 <h1>Hello! You made it!</h1>
 
-{{#if savedEvents.length}}
+{{#if mySavedEvents.length}}
 <div id="saved-events-list">
-  {{#each savedEvents as |event|}}
+  {{#each mySavedEvents as |event|}}
   <div class="card m-6">
     <div class="card-image">
 
       <figure class="image is-256x256">
-        <img src="{{image}}" alt="Event image">
+        <img src="{{event.image}}" alt="Event image">
       </figure>
     </div>
     <div class="media-content p-2 has-text-centered">
-      <p class="title is-1 p-2">{{title}}</p>
+      <p class="title is-1 p-2">{{event.title}}</p>
       <p class="subtitle is-4"></p>
       <div class="content p-2 is-size-5">
-        <time>{{format_date date}} at {{time}}</time>
+        <time>{{date}} at {{time}}</time>
 
         <br>
         <p class="upvotes">Votes for favorite: {{upvotes}}</p>
