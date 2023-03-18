@@ -9,12 +9,14 @@
     <p class="title is-size-4">{{description}}</p>
 
     <p class="subtitle is-6">Location:
-      {{#isUrl location}}
+      {{#isUrlLocation location}}
         {{test}}
-      {{/isUrl}}</p>
+      {{/isUrlLocation}}</p>
 
-    <p class="subtitle is-6">Posted by: {{user.username}}</p>
-    <p class="subtitle is-6">Social media: {{social}}</p>
+    <p class="subtitle is-6">Social:
+      {{#isUrlSocial social}}
+        {{test}}
+      {{/isUrlSocial}}</p>
     <p class="subtitle is-6">Email: {{email}}</p>
     <p class="upvotes">Votes: {{upvotes}}</p>
     <br />
