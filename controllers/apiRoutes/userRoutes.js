@@ -66,18 +66,14 @@ router.post('/login', async (req, res) => {
     console.log(selectUser);
     if (!selectUser) {
       return res.status(404).json({
-
-        message: "Incorrect input. Please Try again",
-
+        message: 'Incorrect input. Please Try again',
       });
     }
 
     const isValidPassword = await selectUser.checkPassword(req.body.password);
 
     if (!isValidPassword) {
-
-      return res.status(404).json({ message: "Please try again." });
-
+      return res.status(404).json({ message: 'Please try again.' });
     }
 
     req.session.save(() => {

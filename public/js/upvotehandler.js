@@ -55,18 +55,12 @@ const saveNewEvent = async (event) => {
   }
 };
 
-// document.querySelector('.save-event').addEventListener('click', saveNewEvent);
-
 saveEvent.forEach((el) => el.addEventListener('click', saveNewEvent));
 
 if (document.getElementById('homeevent-list')) {
   addEventListener('click', updateUpvotes);
 }
-// .addEventListener('click', updateUpvotes);
 else if (document.getElementById('saved-events-list')) {
   addEventListener('click', updateUpvotes);
 }
 
-// document
-//   .getElementById('saved-events-list')
-//   .addEventListener('click', updateUpvotes);

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const sequelize = require('sequelize');
 const { User, Event } = require('../../models');
 
