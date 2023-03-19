@@ -23,6 +23,16 @@ const updateUpvotes = async (event) => {
   } else if (event.target.hasAttribute('more-info')) {
     const id = event.target.getAttribute('more-info');
     document.location.replace(`/event/${id}`);
+    // } else if (event.target.hasAttribute('save-event')) {
+    //   const event_id = event.currentTarget.getAttribute('save-event');
+    // console.log(event_id)
+    // const response = await fetch(`/api/saveEvent`, {
+    //   method: 'POST',
+    //   body: JSON.stringify({ event_id }),
+    //   headers: { 'Content-Type': 'application/json' },
+    // });
+    // console.log(response)
+    // }
   }
 };
 
@@ -53,3 +63,4 @@ if (document.getElementById('homeevent-list')) {
 else if (document.getElementById('saved-events-list')) {
   addEventListener('click', updateUpvotes);
 }
+
