@@ -18,11 +18,11 @@
         <time>{{format_date event.dataValues.date}} at {{event.dataValues.time}}</time>
 
         <br>
-        <p class="upvotes">Votes for favorite: {{upvotes}}</p>
-        <a class="is-size-6" more-info="{{events.dataValues.id}}" href="/event/{{id}}">More info</a>
+        <p class="upvotes">Votes for favorite: {{event.dataValues.upvotes}}</p>
+        <a class="is-size-6" more-info="{{event.dataValues.id}}" href="/event/{{event.dataValues.id}}">More info</a>
         <span class="control is-flex is-justify-content-right">
           <span class="icon is-large has-text-link">
-            <i class="button fas fa-thumbs-up" upvote="{{id}}"
+            <i class="button fas fa-thumbs-up" upvote="{{event.dataValues.id}}"
             id="like-button"></i>
           </span>
         </span>
