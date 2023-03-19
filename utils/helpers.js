@@ -27,4 +27,7 @@ module.exports = {
   to_string: (object) => {
     console.log(JSON.stringify(object));
   },
+  consoleLog: (data) => {
+    console.log(data)
+  }
 };
