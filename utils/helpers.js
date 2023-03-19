@@ -24,4 +24,7 @@ module.exports = {
     console.log("I AM HERE!!!!!!!!!!!!", value);
     return `<p>${options.fn({ test: value })}</p>`;
   },
+  to_string: (object) => {
+    console.log(JSON.stringify(object));
+  },
 };
