@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { SavedEvent } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   // creates a saved event
   try {
     const tagData = await SavedEvent.create({

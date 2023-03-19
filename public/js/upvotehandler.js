@@ -37,7 +37,7 @@ const saveNewEvent = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-      document.location.reload();
+      document.location.replace('/savedevents');
     } else {
       alert('Failed to save event. Please try again.');
     }
