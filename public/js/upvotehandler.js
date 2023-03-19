@@ -38,7 +38,7 @@ const saveNewEvent = async (event) => {
     });
     console.log(response);
     if (response.ok) {
-      document.location.reload();
+      document.location.replace('/savedevents');
     } else {
       alert("Failed to save event. Please try again.");
     }
