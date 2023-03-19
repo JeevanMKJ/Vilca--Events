@@ -1,54 +1,53 @@
-const saveEvent = document.querySelectorAll("[id=save-event]");
+const saveEvent = document.querySelectorAll('[id=save-event]');
 
 const updateUpvotes = async (event) => {
   event.preventDefault();
-  if (event.target.hasAttribute("upvote")) {
-    const id = event.target.getAttribute("upvote");
-    const upvote = "";
-    console.log(id);
+  if (event.target.hasAttribute('upvote')) {
+    const id = event.target.getAttribute('upvote');
+    const upvote = '';
+
     const response = await fetch(`/api/upvotes/${id}`, {
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify({
         id,
         upvote,
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
+
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace('/');
     } else {
-      alert("Failed");
+      alert('Failed');
     }
-  } else if (event.target.hasAttribute("more-info")) {
-    const id = event.target.getAttribute("more-info");
+  } else if (event.target.hasAttribute('more-info')) {
+    const id = event.target.getAttribute('more-info');
     document.location.replace(`/event/${id}`);
   }
 };
 
 const saveNewEvent = async (event) => {
   event.preventDefault();
-  if (event.target.hasAttribute("save-event")) {
-    const event_id = event.target.getAttribute("save-event");
-    console.log(event_id);
+  if (event.target.hasAttribute('save-event')) {
+    const event_id = event.target.getAttribute('save-event');
+
     const response = await fetch(`/api/saveEvent`, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({ event_id }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
     if (response.ok) {
       document.location.reload();
     } else {
-      alert("Failed to save event. Please try again.");
+      alert('Failed to save event. Please try again.');
     }
   }
 };
 
-saveEvent.forEach((el) => el.addEventListener("click", saveNewEvent));
+saveEvent.forEach((el) => el.addEventListener('click', saveNewEvent));
 
-if (document.getElementById("homeevent-list")) {
-  addEventListener("click", updateUpvotes);
-} else if (document.getElementById("saved-events-list")) {
-  addEventListener("click", updateUpvotes);
+if (document.getElementById('homeevent-list')) {
+  addEventListener('click', updateUpvotes);
+} else if (document.getElementById('saved-events-list')) {
+  addEventListener('click', updateUpvotes);
 }

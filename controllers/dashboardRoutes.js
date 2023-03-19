@@ -16,7 +16,6 @@ router.get('/', withAuth, async (req, res) => {
       ],
     });
     const myEvents = myEventData.map((events) => events.get({ plain: true }));
-    console.log(myEvents);
     const { loggedIn } = req.session;
     if (loggedIn) {
       res.render('dashboard', {

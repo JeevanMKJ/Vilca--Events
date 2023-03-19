@@ -10,8 +10,7 @@ const getUpdateBlogForm = (id) =>
 const updateFormHandler = async (event) => {
   event.preventDefault();
   const updateId = event.currentTarget.getAttribute('updateId');
-  console.log(event.currentTarget.getAttribute('updateId'));
-
+  
   const updateForm = getUpdateBlogForm(updateId);
 
   if (event.currentTarget.hasAttribute('updateId')) {
@@ -47,7 +46,6 @@ const submitFormHandler = async (event) => {
     email &&
     social
   ) {
-    console.log('we have info')
     const response = await fetch(`/api/events/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -63,7 +61,6 @@ const submitFormHandler = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
@@ -82,7 +79,6 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      console.log(response);
       alert('Failed to delete event');
     }
   }
