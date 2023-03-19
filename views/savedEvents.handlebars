@@ -1,24 +1,25 @@
 <h1>Hello! You made it!</h1>
 
-{{#if mySavedEvents.length}}
+{{#if events.length}}
 <div id="saved-events-list">
-  {{#each mySavedEvents as |event|}}
+  <h2>hello</h2>
+  {{#each events as |event|}}
   <div class="card m-6">
     <div class="card-image">
 
       <figure class="image is-256x256">
-        <img src="{{event.image}}" alt="Event image">
+        <img src={{event.dataValues.image}} alt="Event image">
       </figure>
     </div>
     <div class="media-content p-2 has-text-centered">
-      <p class="title is-1 p-2">{{event.title}}</p>
+      <p class="title is-1 p-2">{{event.dataValues.title}}</p>
       <p class="subtitle is-4"></p>
       <div class="content p-2 is-size-5">
-        <time>{{date}} at {{time}}</time>
+        <time>{{format_date event.dataValues.date}} at {{event.dataValues.time}}</time>
 
         <br>
         <p class="upvotes">Votes for favorite: {{upvotes}}</p>
-        <a class="is-size-6" more-info="{{id}}" href="/event/{{id}}">More info</a>
+        <a class="is-size-6" more-info="{{events.dataValues.id}}" href="/event/{{id}}">More info</a>
         <span class="control is-flex is-justify-content-right">
           <span class="icon is-large has-text-link">
             <i class="button fas fa-thumbs-up" upvote="{{id}}"

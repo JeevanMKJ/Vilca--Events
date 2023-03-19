@@ -4,16 +4,18 @@ const { sequelize } = require('../config/connection');
 
 class SavedEvent extends Model {}
 
+
 SavedEvent.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   primaryKey: true,
+    //   autoIncrement: true,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       references: {
         model: 'user',
         key: 'id',
@@ -21,6 +23,8 @@ SavedEvent.init(
     },
     event_id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: true,
       references: {
         model: 'event',
         key: 'id',

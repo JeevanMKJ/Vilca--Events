@@ -65,35 +65,58 @@ router.get('/savedEvents', async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      include: [
-        {
-          model: User,
-          attributes: ['id'],
-        },
-        {
-          model: Event,
-          attributes: [
-            'id',
-            'image',
-            'title',
-            'date',
-            'time',
-            'description',
-            'location',
-            'email',
-            'social',
-          ],
-        },
-      ],
     });
-    const mySavedEvents = mySavedEventData.map((events) =>
-      events.get({ plain: true })
+    const events = [];
+    // mySavedEventData.forEach(async (eventData) => {
+    //   const fullData = await Event.findAll({
+    //     where: { id: eventData.event_id },
+    //   });
+    //   console.log(fullData, 'full data');
+    //   events.push(fullData);
+    // });
+
+    await Promise.all(
+      mySavedEventData.map(async (eventData) => {
+        const fullData = await Event.findAll({
+          where: { id: eventData.event_id },
+        });
+        console.log(fullData[0], 'something');
+        events.push(fullData[0]);
+      })
     );
-    console.log(mySavedEvents);
+    // const mySavedEventsLookup = await Event.findAll({
+    //   where: {
+    //     id: mySavedEventData.event_id,
+    //   }
+    // })
+    //   include: [
+    //     // {
+    //     //   model: User,
+    //     //   attributes: ['id'],
+
+    //     // },
+    //     {
+    //       model: Event,
+    //       attributes: [
+    //         'id',
+    //         'image',
+    //         'title',
+    //         'date',
+    //         'time',
+    //         'description',
+    //         'location',
+    //         'email',
+    //         'social',
+    //       ],
+    //     },
+    //   ],
+    // });
+    // const mySavedEvents = events.map((events) => events.get({ plain: true }));
+    console.log(events, 'hello');
     const { loggedIn } = req.session;
     if (loggedIn) {
       res.render('savedEvents', {
-        mySavedEvents,
+        events,
         loggedIn: req.session.loggedIn,
       });
       return;
