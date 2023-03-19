@@ -1,5 +1,4 @@
 const newEventForm = document.getElementById('new-event-form');
-const eventsList = document.querySelector('.events-list');
 const updateBlogBtns = document.querySelectorAll('[id=update-id]');
 const submitUpdatedBlogBtns = document.querySelectorAll(
   '[id=submit-updated-event]'

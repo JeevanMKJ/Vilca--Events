@@ -1,36 +1,27 @@
 const getDashboard = async (event) => {
-    event.preventDefault()
-    document.location.replace('/dashboard')
-    };
-  
-  const getCreate = async (event) => {
-      event.preventDefault()
-      document.location.replace('/create')
-      }
-  
-  const getSaved = async (event) => {
-    event.preventDefault()
-   document.location.replace('/savedEvents')
-     }
-  
-     const getLogin = async (event) => {
-      event.preventDefault()
-     document.location.replace('/login')
-       }
+  event.preventDefault();
+  document.location.replace('/dashboard');
+};
 
+const getCreate = async (event) => {
+  event.preventDefault();
+  document.location.replace('/create');
+};
 
-document
-.querySelector('#dashboard')
-.addEventListener('click', getDashboard);
+const getSaved = async (event) => {
+  event.preventDefault();
+  document.location.replace('/savedEvents');
+};
 
-document
-.querySelector('#create')
-.addEventListener('click', getCreate);
+const getLogin = async (event) => {
+  event.preventDefault();
+  document.location.replace('/login');
+};
 
-document
-.querySelector('#saved')
-.addEventListener('click', getSaved);
+document.querySelector('#dashboard').addEventListener('click', getDashboard);
 
-document
-.querySelector('#login')
-.addEventListener('click', getLogin);
+document.querySelector('#create').addEventListener('click', getCreate);
+
+document.querySelector('#saved').addEventListener('click', getSaved);
+
+document.querySelector('#login').addEventListener('click', getLogin);
