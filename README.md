@@ -22,6 +22,11 @@ Vilca Events application was created in order to implement an easy alternative t
 ![Screenshot](public/assets/update.png)
 ![Screenshot](public/assets/signout.png)
 
++ Deployed Application (Heroku): [Vilca Events](https://glacial-escarpment-38096.herokuapp.com/)
++ GitHub Repository: https://github.com/JeevanMKJ/Vilca--Events
+
+
+
 ## Contributors
 + Brenn Voyles
 + Margaret Saylor
