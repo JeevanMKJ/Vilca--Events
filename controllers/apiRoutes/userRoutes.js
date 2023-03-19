@@ -66,37 +66,14 @@ router.post('/login', async (req, res) => {
     console.log(selectUser);
     if (!selectUser) {
       return res.status(404).json({
-<<<<<<< HEAD
-<<<<<<< HEAD
         message: 'Incorrect input. Please Try again',
-        // message: "This user does not exist! Please create a new account",
-        // edit this err message to be more specific.
-        // ---> message: "Incorrect input. Please Try again"
-=======
-        message: "Incorrect input. Please Try again",
->>>>>>> 6baf0781c6fe041e3ba0e0b1d0ef9ee4ec25a068
-=======
-
-        message: "Incorrect input. Please Try again",
-
->>>>>>> 95180784fa637230de2bb059b2b41e9420c025fd
       });
     }
 
     const isValidPassword = await selectUser.checkPassword(req.body.password);
 
     if (!isValidPassword) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      return res.status(404).json({ message: 'Wrong password' });
-=======
-      return res.status(404).json({ message: "Please try again." });
->>>>>>> 6baf0781c6fe041e3ba0e0b1d0ef9ee4ec25a068
-=======
-
-      return res.status(404).json({ message: "Please try again." });
-
->>>>>>> 95180784fa637230de2bb059b2b41e9420c025fd
+      return res.status(404).json({ message: 'Please try again.' });
     }
 
     req.session.save(() => {

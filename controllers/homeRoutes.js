@@ -67,13 +67,6 @@ router.get('/savedEvents', async (req, res) => {
       },
     });
     const events = [];
-    // mySavedEventData.forEach(async (eventData) => {
-    //   const fullData = await Event.findAll({
-    //     where: { id: eventData.event_id },
-    //   });
-    //   console.log(fullData, 'full data');
-    //   events.push(fullData);
-    // });
 
     await Promise.all(
       mySavedEventData.map(async (eventData) => {
@@ -84,34 +77,6 @@ router.get('/savedEvents', async (req, res) => {
         events.push(fullData[0]);
       })
     );
-    // const mySavedEventsLookup = await Event.findAll({
-    //   where: {
-    //     id: mySavedEventData.event_id,
-    //   }
-    // })
-    //   include: [
-    //     // {
-    //     //   model: User,
-    //     //   attributes: ['id'],
-
-    //     // },
-    //     {
-    //       model: Event,
-    //       attributes: [
-    //         'id',
-    //         'image',
-    //         'title',
-    //         'date',
-    //         'time',
-    //         'description',
-    //         'location',
-    //         'email',
-    //         'social',
-    //       ],
-    //     },
-    //   ],
-    // });
-    // const mySavedEvents = events.map((events) => events.get({ plain: true }));
     console.log(events, 'hello');
     const { loggedIn } = req.session;
     if (loggedIn) {
