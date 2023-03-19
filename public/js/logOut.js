@@ -13,6 +13,8 @@ const logout = async () => {
   }
 };
 
+
+
 document.querySelector('#logout').addEventListener('click', logout);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -60,3 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
