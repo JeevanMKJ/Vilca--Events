@@ -16,7 +16,6 @@ router.post('/add-event', withAuth, async (req, res) => {
       social: req.body.social,
       user_id: req.session.user_id,
     });
-    console.log(newEvent);
     if (
       newEvent.image &&
       newEvent.title &&
@@ -30,8 +29,6 @@ router.post('/add-event', withAuth, async (req, res) => {
     ) {
       return res.status(200).json(newEvent);
     }
-
-    console.log('SOMETHING IS WRONG <3');
   } catch (err) {
     res.status(400).json(err);
   }

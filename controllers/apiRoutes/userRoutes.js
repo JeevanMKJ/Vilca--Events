@@ -63,7 +63,6 @@ router.post('/login', async (req, res) => {
         email: req.body.email,
       },
     });
-    console.log(selectUser);
     if (!selectUser) {
       return res.status(404).json({
         message: 'Incorrect input. Please Try again',
