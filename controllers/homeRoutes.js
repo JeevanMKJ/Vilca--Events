@@ -10,12 +10,13 @@ router.get('/', async (req, res) => {
     const dbEventData = await Event.findAll({
       order: sequelize.literal('upvotes DESC'),
     });
-
+    const loggedIn = req.session.loggedIn;
     const events = dbEventData.map((event) => event.get({ plain: true }));
+    // console.log(loggedIn, "HELLO WORLDDDDDDD")
     console.log(events);
     res.render('homepage', {
       events,
-      loggedIn: req.session.loggedIn,
+      loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -59,7 +60,7 @@ router.get('/create', withAuth, (req, res) => {
   res.render('handleEvent', { loggedIn: req.session.loggedIn });
 });
 
-router.get('/savedEvents', async (req, res) => {
+router.get('/savedEvents', withAuth, async (req, res) => {
   try {
     const mySavedEventData = await SavedEvent.findAll({
       where: {

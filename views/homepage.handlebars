@@ -18,7 +18,7 @@
         <p class="upvotes">Votes for favorite: {{upvotes}}</p>
         <a class="is-size-6" more-info="{{id}}" href="/event/{{id}}">More info</a>
         <span class="control is-flex is-justify-content-right">
-          {{#if loggedIn}}
+          {{!-- {{#if loggedIn}} --}}
           <span class="icon is-large has-text-link">
             <i class="button fas fa-thumbs-up" upvote="{{id}}" id="like-button"></i>
           </span>
@@ -27,7 +27,6 @@
               <i class="button save-event fas fa-bookmark" id="save-event" save-event="{{id}}"></i>
             </span>
           </span>
-          {{/if}}
       </div>
     </div>
   </div>
